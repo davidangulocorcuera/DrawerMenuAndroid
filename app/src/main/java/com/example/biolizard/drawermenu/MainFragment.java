@@ -13,6 +13,7 @@ public class MainFragment extends Fragment {
     private String str_textForSend;
     @BindView(R.id.textView_principal)
     TextView tv_firstText;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

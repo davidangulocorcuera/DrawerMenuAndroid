@@ -43,14 +43,18 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
         });
 
 
+        mainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentMain);
     }
 
     private boolean onMenuItemPressed(@NonNull MenuItem item) {
         int id = item.getItemId();
+
+        changeText((String) item.getTitle());
+        dl.closeDrawers();
+
         switch (id) {
             case R.id.account:
                 Toast.makeText(MainActivity.this, "My Account", Toast.LENGTH_SHORT).show();
-                changeText("My Account");
                 return true;
             case R.id.settings:
                 Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
@@ -68,15 +72,20 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
             default:
                 return true;
         }
+
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (t.onOptionsItemSelected(item)) {
+
             return true;
         }
         else {
+
            onMenuItemPressed(item);
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -90,9 +99,6 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
 
     @Override
     public void changeText(String texto) {
-        data = new Bundle();
-        data.putString(KEY, texto);
-        mainFragment = new MainFragment();
-        mainFragment.setArguments(data);
+        mainFragment.updateView(texto);
     }
 }
