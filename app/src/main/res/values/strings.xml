@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DrawerMenu</string>
+    <string name="Open">DrawerOpen</string>
+    <string name="Close">DraweClose</string>
+    <string name="str_item1">item1</string>
+    <string name="str_item2">item2</string>
+</resources>
